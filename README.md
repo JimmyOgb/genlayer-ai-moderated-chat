@@ -1,12 +1,10 @@
 # genlayer-ai-moderated-chat
-ai-native-chat-rooms/
 ├── index.html
 ├── style.css
 ├── script.js
 ├── assets/
 │   └── logo.png (optional)
 └── README.md
-index.html
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -138,7 +136,6 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-script.js
 function sendMessage() {
   const input = document.getElementById('msgInput');
   const chat = document.getElementById('chat');
