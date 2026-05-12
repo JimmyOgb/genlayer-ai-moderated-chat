@@ -1,11 +1,4 @@
 # genlayer-ai-moderated-chat
-├── index.html
-├── style.css
-├── script.js
-├── assets/
-│   └── logo.png (optional)
-└── README.md
-<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
@@ -121,60 +114,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-style.css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-.chat-message {
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-function sendMessage() {
-  const input = document.getElementById('msgInput');
-  const chat = document.getElementById('chat');
-  if (!input.value.trim()) return;
-
-  const msg = document.createElement('div');
-  msg.className = 'chat-message flex gap-3';
-  msg.innerHTML = `
-    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full flex-shrink-0"></div>
-    <div>
-      <div class="text-xs text-gray-500">@you • just now</div>
-      <div class="bg-gray-800 px-4 py-3 rounded-2xl rounded-tl-none">
-        ${input.value}
-      </div>
-      <div class="text-[10px] text-green-400 mt-1">✓ AI Approved • +5 rep</div>
-    </div>
-  `;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
-  input.value = '';
-
-  // Simulate moderation
-  setTimeout(() => {
-    if (Math.random() > 0.7) {
-      const mod = document.createElement('div');
-      mod.className = 'text-center text-xs text-yellow-400 py-2';
-      mod.textContent = 'AI Moderator: Message flagged as potentially misleading';
-      chat.appendChild(mod);
-      chat.scrollTop = chat.scrollHeight;
-    }
-  }, 800);
-}
-
-// Auto demo messages
-setTimeout(() => {
-  const chat = document.getElementById('chat');
-  const welcome = document.createElement('div');
-  welcome.innerHTML = `
-    <div class="text-center text-xs text-gray-500 py-2">Room started • AI rules active</div>
-  `;
-  chat.appendChild(welcome);
-}, 500);
